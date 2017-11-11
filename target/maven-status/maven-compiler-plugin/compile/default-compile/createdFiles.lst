@@ -1,0 +1,10 @@
+com\ai\exam\model\Product.class
+com\ai\exam\config\SpringSecurityConfig.class
+com\ai\exam\repository\ProductRepository.class
+com\ai\exam\controller\DefaultController.class
+com\ai\exam\repository\CategoryRepository.class
+com\ai\exam\SpringBootWebApplication.class
+com\ai\exam\repository\BaseRepository.class
+com\ai\exam\error\MyAccessDeniedHandler.class
+com\ai\exam\model\Category.class
+com\ai\exam\controller\ProductController.class
