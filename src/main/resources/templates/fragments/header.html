@@ -1,16 +1,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <div th:fragment="header-css">
-  <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+  <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+  <script th:src="@{/js/jquery.datatable.min.js}"></script>
   <!-- this is header-css -->
   <link rel="stylesheet" type="text/css"
-
     th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+
+  <link rel="stylesheet" th:href="@{/css/jquery.datatable.min.css}"
+    href="../../css/jquery.datatable.min.css" />
 
   <link rel="stylesheet" th:href="@{/css/main.css}"
     href="../../css/main.css" />
   <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"
     href="../../css/font-awesome.min.css" />
+    
 
 </div>
 </head>

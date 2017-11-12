@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         <div class="list-group">
-          <table class="table" dt:table="true">
+          <table id="productlist" class="table" >
             <thead>
               <tr>
                 <th>Name</th>
@@ -65,5 +65,14 @@
   <!-- /.container -->
 
   <div th:replace="fragments/footer :: footer" />
+  <script type="text/javascript">
+  $(document).ready(function() {
+    var table = $('#productlist').DataTable({
+			"order": [[ 0, "asc" ]],
+		
+	 })
+
+  });
+  </script>
 </body>
 </html>
