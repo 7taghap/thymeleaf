@@ -15,13 +15,14 @@
           <h1>Product List</h1>
         </div>
         <div class="col-md-4">
+        <a th:href="@{/createproduct}">
           <button type="button" class="btn btn-primary">New
-            Product</button>
+            Product</button></a>
         </div>
       </div>
       <div class="row">
         <div class="list-group">
-          <table class="table">
+          <table class="table" dt:table="true">
             <thead>
               <tr>
                 <th>Name</th>
@@ -29,6 +30,7 @@
                 <th>Price</th>
                 <th>Available</th>
                 <th>Qty</th>
+                <th>Category Path</th>
                 <th></th>
               </tr>
             </thead>
@@ -39,14 +41,17 @@
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.available}"></td>
                 <td th:text="${product.qty}"></td>
-                <td th:text="${product.status}"></td>
+                <td th:text="${product.category.path}"></td>
                 <td>
+                 <a th:href="@{/editproduct/{id}(id=${product.id})}">
                   <button type="button" class="btn">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  </button>
+                  </button></a>
+                   <a th:href="@{/deleteproduct/{id}(id=${product.id})}">
                   <button type="button" class="btn">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                  </button>
+                  
+                   <i class="fa fa-times" aria-hidden="true"></i>
+                  </button></a>
                 </td>
               </tr>
 

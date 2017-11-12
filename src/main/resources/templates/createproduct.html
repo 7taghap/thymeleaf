@@ -10,29 +10,40 @@
   <div class="container">
 
     <div class="starter-template">
-    <legend>Create Product</legend>
-      <form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
+      <legend th:text="${title}"></legend>
+      <form action="#" th:action="@{/product/add}"
+        th:object="${product}" method="post">
         <div class="form-group">
           <label for="name">Name</label> <input type="text"
             class="form-control" id="name" th:field="*{name}"
-            placeholder="Product Name"/>
+            placeholder="Product Name" />
         </div>
         <div class="form-group">
           <label for="name">Description</label> <input type="text"
-            class="form-control" id="description" th:field="*{description}"
-            placeholder="Description"/>
+            class="form-control" id="description"
+            th:field="*{description}" placeholder="Description" />
         </div>
         <div class="form-group">
           <label for="name">Price</label> <input type="number"
             class="form-control" id="price" th:field="*{price}"
-            placeholder="price"/> 
+            placeholder="price" />
         </div>
         <div class="form-group">
           <label for="name">Qty on Hand</label> <input type="number"
             class="form-control" id="qty" th:field="*{qty}"
-            placeholder="0"/> 
+            placeholder="0" />
         </div>
-       
+
+        <div class="form-group">
+          <label for="name">Category Path</label> 
+            <select th:field="*{category.id}" class="form-control">
+              <option th:each="category : ${categories}"
+              th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+      <input type="hidden"
+            class="form-control" id="id" th:field="*{id}"
+            placeholder="0" />
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

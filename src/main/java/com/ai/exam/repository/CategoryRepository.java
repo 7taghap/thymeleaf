@@ -1,5 +1,9 @@
 package com.ai.exam.repository;
 
-public interface CategoryRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.ai.exam.model.Category;
+
+public interface CategoryRepository extends CrudRepository<Category, Long>{
 
 }

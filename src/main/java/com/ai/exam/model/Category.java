@@ -19,7 +19,7 @@ import lombok.Setter;
 public class Category implements Serializable {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   
   private String name;
@@ -27,6 +27,6 @@ public class Category implements Serializable {
   private String path;
   
 
-  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
-  private Set<Product> products;
+//  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
+//  private Set<Product> products;
 }

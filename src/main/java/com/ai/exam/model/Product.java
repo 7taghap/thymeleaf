@@ -1,8 +1,7 @@
 package com.ai.exam.model;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.Set;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,9 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +20,7 @@ import lombok.Setter;
 public class Product implements Serializable{
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   
   private String name;
@@ -43,11 +40,14 @@ public class Product implements Serializable{
   private Date created;
   
   private String creator;
+ 
+  @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+  private Category category;
   
-@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-@JoinTable(name = "product_category", joinColumns = {
-        @JoinColumn(name = "product_id", nullable = false, updatable = false) },
-        inverseJoinColumns = { @JoinColumn(name = "category_id",
-                nullable = false, updatable = false) })
-  private Set<Category> categories;
+//@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//@JoinTable(name = "product_category", joinColumns = {
+//        @JoinColumn(name = "product_id", nullable = false, updatable = false) },
+//        inverseJoinColumns = { @JoinColumn(name = "category_id",
+//                nullable = false, updatable = false) })
+//  private Set<Category> categories;
 }
